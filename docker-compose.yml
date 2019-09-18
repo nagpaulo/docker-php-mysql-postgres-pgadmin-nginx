@@ -16,7 +16,6 @@ services:
       context: ./php
     volumes:
       - "./app:/var/www/html"
-      - "./php/php-7.3.5/php.ini:/usr/local/etc/php/php.ini"
     ports:
       - "9000:9000"
     depends_on:
