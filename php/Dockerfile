@@ -1,5 +1,5 @@
 FROM php:7.3-fpm
-LABEL maintainer="dev@chialab.io"
+LABEL maintainer="nagpaulo@gmail.com"
 
 # Install PHP extensions and PECL modules.
 RUN buildDeps=" \

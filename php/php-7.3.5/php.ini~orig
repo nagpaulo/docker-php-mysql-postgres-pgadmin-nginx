@@ -398,7 +398,7 @@ max_input_time = 60
 
 ; Maximum amount of memory a script may consume (128MB)
 ; http://php.net/memory-limit
-memory_limit = 128M
+memory_limit = 1G
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Error handling and logging ;
@@ -750,7 +750,7 @@ user_dir =
 ; http://php.net/extension-dir
 ;extension_dir = "./"
 ; On windows:
-;extension_dir = "ext"
+extension_dir = "ext"
 
 ; Directory where the temporary files should be placed.
 ; Defaults to the system default (see sys_get_temp_dir)
@@ -913,18 +913,18 @@ default_socket_timeout = 60
 ;extension=interbase
 ;extension=ldap
 ;extension=mbstring
-;extension=exif      ; Must be after mbstring as it depends on it
+;extension=exif      
 ;extension=mysqli
-;extension=oci8_12c  ; Use with Oracle Database 12c Instant Client
-;extension=odbc
+;extension=oci8_12c  
+extension=odbc
 ;extension=openssl
 ;extension=pdo_firebird
 ;extension=pdo_mysql
 ;extension=pdo_oci
 ;extension=pdo_odbc
-;extension=pdo_pgsql
+extension=pdo_pgsql
 ;extension=pdo_sqlite
-;extension=pgsql
+extension=pgsql
 ;extension=shmop
 
 ; The MIBS data available in the PHP distribution must be installed.
