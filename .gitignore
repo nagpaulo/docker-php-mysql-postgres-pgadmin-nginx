@@ -1,2 +1,2 @@
-app/saladesituacao/
-app/saladesituacaomig/
+pgadmin-data/*
+postgres/data/*
