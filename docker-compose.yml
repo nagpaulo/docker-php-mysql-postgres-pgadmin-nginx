@@ -11,6 +11,9 @@ services:
       - "5432:5432"
     volumes:
      - ./postgres/data:/usr/local/pgsql/data
+    networks:
+      - postgres-compose-network
+      - hr-net
 
   pgadmin4:
     image: dpage/pgadmin4
@@ -22,6 +25,15 @@ services:
       - ./pgadmin-data:/var/lib/pgadmin/storage/admin_root.com
     ports:
       - 8082:80
+    networks:
+      - postgres-compose-network
+      - hr-net
 
 volumes:
   db_data:
+
+networks: 
+  postgres-compose-network:
+    driver: bridge
+  hr-net: 
+    driver: bridge
