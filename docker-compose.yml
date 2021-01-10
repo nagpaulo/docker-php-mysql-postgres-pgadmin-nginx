@@ -1,8 +1,8 @@
-version: "3" 
+version: "3.7" 
 services:
   postgresql:
-    image: postgres
-    container_name: postgres
+    image: postgres:12
+    container_name: hr-postgres
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
@@ -12,8 +12,8 @@ services:
     volumes:
      - ./postgres/data:/usr/local/pgsql/data
     networks:
-      - postgres-compose-network
       - hr-net
+      - interna
 
   pgadmin4:
     image: dpage/pgadmin4
@@ -26,14 +26,13 @@ services:
     ports:
       - 8082:80
     networks:
-      - postgres-compose-network
       - hr-net
+      - interna
 
 volumes:
   db_data:
 
-networks: 
-  postgres-compose-network:
-    driver: bridge
-  hr-net: 
-    driver: bridge
+networks:
+  hr-net:
+    external: true
+  interna:
