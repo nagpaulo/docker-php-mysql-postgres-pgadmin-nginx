@@ -1,16 +1,17 @@
 version: "3.7" 
 services:
   postgresql:
-    image: postgres:12
+    image: debezium/postgres:16-alpine
     container_name: hr-postgres
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: postgres
     ports:
-      - "5432:5432"
+      - "5434:5432"
     volumes:
      - ./postgres/data:/usr/local/pgsql/data
+     #- ./postgresqlCustom.conf:/var/lib/postgresql/data/postgresql.conf
     networks:
       - hr-net
       - interna
@@ -21,8 +22,9 @@ services:
     environment:
       PGADMIN_DEFAULT_EMAIL: admin@root.com
       PGADMIN_DEFAULT_PASSWORD: admin
+      PGADMIN_CONFIG_SERVER_MODE: 'True'
     volumes:
-      - ./pgadmin-data:/var/lib/pgadmin/storage/admin_root.com
+      - ./pgadmin-data:/var/lib/pgadmin/storage
     ports:
       - 8082:80
     networks:
